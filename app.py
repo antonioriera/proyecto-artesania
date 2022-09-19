@@ -32,6 +32,11 @@ def ejemplo_pagina():
 
     return render_template('ejemplo-pagina.html')
 
+@app.get("/directorio_proveedores_mf")
+def directorio_mf():
+
+    return render_template('directorio_proveedores_mf.html')
+
 @app.get("/artesanos")
 def pagina_artesanos():
 
