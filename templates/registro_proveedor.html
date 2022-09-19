@@ -1,8 +1,13 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
 {% extends 'base.html' %}
 
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
 {% block title %}Registro Proveedor{% endblock %}
 
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
 {% block content %}
+
+    {# comenzamos a construir el contenido de nuestra pagina#}
 <div> 
     <h1>REGISTRO PROVEEDOR</h1>
     <p>{ tipo_materia }</p>
@@ -11,8 +16,11 @@
         <option v-for="tipo in tipos_materia" :value="tipo">{tipo}</option>
     </select>
 </div>
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
 {% endblock %}
 
+{# definimos el bloque de Scripts de la pagina declarado en al archivo base.html #}
 {% block script %}
 <script>
 Vue.createApp({
@@ -25,4 +33,6 @@ Vue.createApp({
     delimiters: ['{', '}']
 }).mount('#app')
 </script>
+
+{# finalizamos la definicion del bloque de Scripts de la pagina declarado en al archivo base.html #}
 {% endblock %}

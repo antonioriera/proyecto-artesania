@@ -1,4 +1,6 @@
+# importamos las dependencias de Flask
 from flask import Flask, render_template, request
+# importamos el sqlite3
 import sqlite3
 
 app = Flask(__name__)
@@ -24,6 +26,11 @@ def provider_register():
     raw_material = ["Textiles", "Cuero", "Madera", "Piedras", "Metales", "Astas", "Cerámica", "Fibras Vegetales", "Expresión Artística (IND)", "Artesania Ceremonial y de Recoleccion (IND)"]
 
     return render_template('registro_proveedor.html', tipo_materia = raw_material)
+
+@app.get("/ejemplo-pagina")
+def ejemplo_pagina():
+
+    return render_template('ejemplo-pagina.html')
 
 @app.post("/provider")
 def create_providers():
