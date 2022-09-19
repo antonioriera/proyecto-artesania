@@ -1,0 +1,16 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
+{% extends 'base.html' %}
+
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
+{% block title %}AQUI EL TITULO{% endblock %}
+
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
+{% block content %}
+
+    {# comenzamos a construir el contenido de nuestra pagina#}
+    <div>
+        <h1>AQUI EL CONTENIDO</h1>
+    </div>
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}
