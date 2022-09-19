@@ -32,6 +32,11 @@ def ejemplo_pagina():
 
     return render_template('ejemplo-pagina.html')
 
+@app.get("/artesanos")
+def pagina_artesanos():
+
+    return render_template('artesanos.html')
+
 @app.post("/provider")
 def create_providers():
     cur, con = db()
