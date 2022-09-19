@@ -2,25 +2,21 @@
 {% extends 'base.html' %}
 
 {# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
-{% block title %}Inicio{% endblock %}
+{% block title %}Materia Prima{% endblock %}
 
 {# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
 {% block content %}
 
     {# comenzamos a construir el contenido de nuestra pagina#}
-<div>
-    <p>PANTALLA PRINCIPAL</p>
-    <h1>Prueba github</h1>
-</div>
-<div>
-    <h1>Preuba de Dani</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugiat ea tenetur eos excepturi nobis assumenda ducimus necessitatibus quia quasi maiores aliquam dolorem, quis temporibus officia ipsum at quod. Atque.</p>
-</div>
-<div>
-    <h1>
-        hola
-    </h1>
-</div>
+    <div class="flex m-10">
+        <div class="flex flex-col m-0 m-auto content-center">
+            <div class="text-xl mb-3"><p>Directorio de acceso a materia prima</p></div>
+    
+            <div class="w-[1000px] h-96 bg-gray-400 rounded-xl">
+                <p>AQUI CONTENIDO</p>
+            </div>
+        </div>
+    </div>
 
 {# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
 {% endblock %}

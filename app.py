@@ -37,6 +37,16 @@ def directorio_mf():
 
     return render_template('f.html')
 
+@app.get("/artesanos")
+def pagina_artesanos():
+
+    return render_template('artesanos.html')
+
+@app.get("/proveedores")
+def pagina_proveedores():
+
+    return render_template('proveedores.html')
+
 @app.post("/provider")
 def create_providers():
     cur, con = db()
