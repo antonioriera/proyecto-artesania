@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro Proveedor{% endblock %}
+
+{% block content %}
+<div> 
+    <h1>REGISTRO PROVEEDOR</h1>
+    <p>{ tipo_materia }</p>
+
+    <select v-model="tipo_materia">
+        <option v-for="tipo in tipos_materia" :value="tipo">{tipo}</option>
+    </select>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+Vue.createApp({
+    data() {
+        return {
+            tipo_materia: null,
+            tipos_materia: ["Textiles", "Cuero", "Madera", "Piedras", "Metales", "Astas", "Cerámica", "Fibras Vegetales", "Expresión Artística (IND)", "Artesania Ceremonial y de Recoleccion (IND)"]
+        }
+    },
+    delimiters: ['{', '}']
+}).mount('#app')
+</script>
+{% endblock %}
