@@ -1,0 +1,26 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
+{% extends 'base.html' %}
+
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
+{% block title %}DIRECTORIO DE PROVEEDORES{% endblock %}
+
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
+{% block content %}
+<body>
+    <nav>
+        {# comenzamos a construir el contenido de nuestra pagina#}
+        <div>
+            <h1>AQUI EL CONTENIDO</h1>
+            <p> HOLA MARIA SOY</p>
+        </div>
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+            <div class="flex items-center box-content h-32 w-32 p-4 border-4 object-center bg-[#9CA3AF]">
+                <h1 class="text-lg w-96 text-[#08254B]"> Directorio de proveedores </h1>
+            </div> 
+        </div>
+    </nav>
+</body>
+    
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}
