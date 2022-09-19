@@ -35,7 +35,7 @@ def ejemplo_pagina():
 @app.get("/directorio_proveedores_mf")
 def directorio_mf():
 
-    return render_template('f.html')
+    return render_template('directorio_proveedores_mf.html')
 
 @app.get("/artesanos")
 def pagina_artesanos():
