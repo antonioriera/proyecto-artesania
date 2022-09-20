@@ -1,0 +1,73 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
+{% extends 'base.html' %}
+
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
+{% block title %}Directorio{% endblock %}
+
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
+{% block content %}
+
+    {# comenzamos a construir el contenido de nuestra pagina#}
+    <div class="flex m-10">
+        <div class="flex flex-col m-0 m-auto content-center">
+            <div class="text-xl mb-3"><p>Directorio de Proveedores - Materia Prima</p></div>
+    
+            <div class="w-[1000px] bg-slate-100 rounded-xl">
+                <div class="flex">  
+                    <div class="mt-10 sm:mt-0 p-10 content-center w-full">
+                        <div class="md:grid md:grid-cols-3 md:gap-6">
+                          <div class="mt-5 md:col-span-3 md:mt-0">
+                              <div class="overflow-hidden shadow sm:rounded-md">
+                                <div>
+                                    <table id="table_id" class="display">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>N° Documento</th>
+                                                <th>Compañia</th>
+                                                <th>Direccion</th>
+                                                <th>Telefono</th>
+                                                <th>Ciudad</th>
+                                                <th>Materia Prima</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for data in profiles %}
+                                            <tr>
+                                                <td>{{data.id}}</td>
+                                                <td>{{data.first_name}}</td>
+                                                <td>{{data.last_name}}</td>
+                                                <td>{{data.company_name}}</td>
+                                                <td>{{data.document}}</td>
+                                                <td>{{data.address}}</td>
+                                                <td>{{data.phone_number}}</td>
+                                                <td>{{data.city}}</td>
+                                                <td>{{data.raw_material}}</td>
+                                            </tr>
+                                            {% endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script>  
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+{% endblock %}

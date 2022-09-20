@@ -63,6 +63,12 @@ def iniciar_sesion():
 
     return render_template('iniciar_sesion.html')
 
+@app.get("/directorio")
+def pagina_directorio():
+    data = Providers.query.all()
+
+    return render_template('directorio.html', profiles=data)
+
 @app.post("/provider")
 def create_providers():
     provider = Providers()
