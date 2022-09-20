@@ -1,0 +1,52 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
+{% extends 'base.html' %}
+
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
+{% block title %}Artesanos{% endblock %}
+
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
+{% block content %}
+
+    {# comenzamos a construir el contenido de nuestra pagina#}
+    <div class="flex m-10">
+        <div class="flex flex-col m-0 m-auto content-center">
+            <div class="text-xl mb-3"><p>Registrar</p></div>
+    
+            <div class="w-[600px] bg-gray-400 rounded-xl m-10">
+                <div class="flex flex-row">  
+                    <div class="mt-10 sm:mt-0 p-10 content-center w-full">
+                        <div class="md:grid md:grid-cols-4 md:gap-2 m-2">
+                          <div class="mt-5 md:col-span-2 md:mt-0">
+                              <div class="overflow-hidden shadow sm:rounded-md">
+                                <div class="bg-cyan-800 px-4 py-5 sm:p-6">
+                                  <div class="grid grid-cols-6 gap-6 m-2">
+                                    <a href="/proveedores" class="w-[150px]">
+                                        <img src="{{ url_for('static', filename='proveedor.png') }}" alt="Materia Prima">
+                                        <p class="text-base text-white">Materia Prima</p>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+
+                          <div class="mt-5 md:col-span-2 md:mt-0">
+                            <div class="overflow-hidden shadow sm:rounded-md">
+                              <div class="bg-rose-800 px-4 py-5 sm:p-6">
+                                <div class="grid grid-cols-6 gap-6 m-2">
+                                    <a href="/artesanos" class="w-[150px]">
+                                        <img src="{{ url_for('static', filename='artesano.png') }}" alt="Artesano">
+                                        <p class="text-base text-white">Artesano</p>
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}

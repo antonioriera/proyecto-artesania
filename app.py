@@ -53,6 +53,16 @@ def pagina_proveedores():
 
     return render_template('proveedores.html')
 
+@app.get("/register")
+def pagina_registro():
+
+    return render_template('registro.html')
+
+@app.get("/iniciar-sesion")
+def iniciar_sesion():
+
+    return render_template('iniciar_sesion.html')
+
 @app.post("/provider")
 def create_providers():
     provider = Providers()
