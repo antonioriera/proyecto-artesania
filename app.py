@@ -1,21 +1,27 @@
 # importamos las dependencias de Flask
 from flask import Flask, render_template, request
 # importamos el sqlite3
-import sqlite3
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/minartpy.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-def db():
-    con = sqlite3.connect("minartpy.db")
+db = SQLAlchemy(app)
 
-    return [con.cursor(), con]
-
-@app.get("/create-tables")
-def create_tables():
-    cur, _ = db()
-    cur.execute("CREATE TABLE providers(id INTEGER PRIMARY KEY AUTOINCREMENT, first_name, last_name, company_name, document, address, phone_number, city, raw_material, latitude, longitude, status)")
-
-    return {"create": True}
+class Providers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(20))
+    last_name = db.Column(db.String(20))
+    company_name = db.Column(db.String(60))
+    document = db.Column(db.String(20))
+    address = db.Column(db.String(200))
+    phone_number = db.Column(db.String(20))
+    city = db.Column(db.String(100))
+    raw_material = db.Column(db.String(200))
+    latitude = db.Column(db.String(100))
+    longitude = db.Column(db.String(100))
+    status = db.Column(db.Boolean)
 
 @app.get("/")
 def index():
@@ -49,34 +55,24 @@ def pagina_proveedores():
 
 @app.post("/provider")
 def create_providers():
-    cur, con = db()
+    provider = Providers()
+    provider.first_name = request.json["nombre"]
+    provider.last_name = request.json["apellido"]
+    provider.company_name = request.json["nombre_empresa"]
+    provider.document = request.json["documento"]
+    provider.address = request.json["direccion"]
+    provider.phone_number = request.json["telefono"]
+    provider.city = request.json["ciudad"]
+    provider.raw_material = request.json["materia_prima"]
+    provider.latitude = request.json["latitude"]
+    provider.longitude = request.json["longitude"]
+    provider.status = True
 
-    first_name = request.json["first_name"]
-    last_name = request.json["last_name"]
-    company_name = request.json["company_name"]
-    document = request.json["document"]
-    address = request.json["address"]
-    phone_number = request.json["phone_number"]
-    city = request.json["city"]
-    raw_material = request.json["raw_material"]
-    latitude = request.json["latitude"]
-    longitude = request.json["longitude"]
-    status = request.json["status"]
-
-    result = cur.execute(f"SELECT id, document FROM providers WHERE document = '{document}")
-    document_exist = result.fetchone()
-
-    if document_exist is not None:
-        return {"error": "El documento ya existe"}
-
-    cur.execute(f"INSERT INTO providers VALUES (null, '{first_name}', '{last_name}', '{company_name}', '{document}', '{address}', '{phone_number}', '{city}', '{raw_material}', '{latitude}', '{longitude}', '{status}')")
-
-    con.commit()
-
-    return {"first_name": first_name}
-
-
-
+    db.session.add(provider)
+    db.session.commit()
+    
+    return {"id": provider.id}
 
 if __name__ == '__main__':
+    db.create_all()
     app.run('0.0.0.0', 5000, debug=True)
