@@ -8,15 +8,15 @@
 {% block content %}
 
     {# comenzamos a construir el contenido de nuestra pagina#}
-    <div class="flex m-10">
+    <div class="flex m-10" id="app">
         <div class="flex flex-col m-0 m-auto content-center">
-            <div class="text-xl mb-3"><p>Directorio de acceso a materia prima</p></div>
+            <div class="text-xl mb-3"><p>Registro de Proveedores - Materia Prima</p></div>
     
             <div class="w-[1000px] bg-gray-400 rounded-xl">
                 <div class="flex">  
                     <div class="mt-10 sm:mt-0 p-10 content-center w-full">
                         <div class="md:grid md:grid-cols-3 md:gap-6">
-                          <div class="mt-5 md:col-span-2 md:mt-0">
+                          <div class="mt-5 md:col-span-3 md:mt-0">
                             <form action="#" method="POST">
                               <div class="overflow-hidden shadow sm:rounded-md">
                                 <div class="bg-white px-4 py-5 sm:p-6">
@@ -36,14 +36,24 @@
                                       <input type="text" name="company" id="company" autocomplete="company-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                     </div>
                       
-                                    <div class="col-span-6 sm:col-span-4">
-                                      <label for="email-address" class="block text-sm font-medium text-gray-700">Correo</label>
-                                      <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="document" class="block text-sm font-medium text-gray-700">RUC</label>
+                                      <input type="text" name="document" id="document" autocomplete="document" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                     </div>
                       
                                     <div class="col-span-6 sm:col-span-3">
-                                      <label for="phone" class="block text-sm font-medium text-gray-700">Ciudad</label>
-                                      <select id="phone" name="phone" autocomplete="phone-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                      <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                                      <input type="password" name="password" id="password" autocomplete="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3 lg:col-span-3">
+                                      <label for="phone" class="block text-sm font-medium text-gray-700">Telefono</label>
+                                      <input type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                    </div>
+                      
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
+                                      <select id="city" name="city" autocomplete="city" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                         <option>Asuncion</option>
                                         <option>Limpiop</option>
                                         <option>Luque</option>
@@ -51,27 +61,21 @@
                                     </div>
                       
                                     <div class="col-span-6 sm:col-span-3">
-                                      <label for="phone" class="block text-sm font-medium text-gray-700">Tipo de materia prima</label>
-                                      <select id="phone" name="phone" autocomplete="phone-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                      <label for="raw_material" class="block text-sm font-medium text-gray-700">Tipo de materia prima</label>
+                                      <select id="raw_material" name="raw_material" autocomplete="raw_material" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                         <option>Madera</option>
-                                        <option>Limpiop</option>
-                                        <option>Luque</option>
+                                        <option>Textil</option>
+                                        <option>Ceramica</option>
                                       </select>
                                     </div>
                       
                                     <div class="col-span-6">
-                                      <label for="street-address" class="block text-sm font-medium text-gray-700">Direccion</label>
+                                      <label for="street-address" class="block text-sm font-medium text-gray-700">Dirección</label>
                                       <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                     </div>
-                      
-                                    <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                      <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
-                                      <input type="text" name="city" id="city" autocomplete="city" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                    </div>
-                      
-                                    <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                      <label for="phone" class="block text-sm font-medium text-gray-700">Telefono</label>
-                                      <input type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+
+                                    <div class="col-span-6">
+                                      <div id="map" class="w-full" style="height: 400px"></div>
                                     </div>
                                   </div>
                                 </div>
@@ -87,6 +91,53 @@
             </div>
         </div>
     </div>
-
 {# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}
+
+{# definimos el bloque de Scripts de la pagina declarado en al archivo base.html #}
+{% block script %}
+<script src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+<script src="https://cdn.jsdelivr.net/gh/Logicify/jquery-locationpicker-plugin@master/dist/locationpicker.jquery.js"></script>
+
+<script>
+Vue.createApp({
+    data() {
+        return {
+          location: {
+            latitude: '-25.3023494',
+            longitude: '-57.5833549',
+          }
+        }
+    },
+    mounted() {
+      this.getLocation()
+      this.initMap()
+    },
+    methods: {
+      getLocation() {
+        navigator.geolocation.getCurrentPosition(({ coords }) => {
+          this.location.latitude = coords.latitude
+          this.location.longitude = coords.longitude
+        }, (error) => {
+          console.log(error)
+        })
+      },
+      initMap() {
+        const $this = this
+
+        $('#map').locationpicker({
+          location: this.location,
+          radius: 0,
+          onchanged(location) {
+            $this.location.latitude = location.latitude
+            $this.location.longitude = location.longitude
+          },
+        });
+      }
+    },
+    delimiters: ['{', '}']
+}).mount('#app')
+</script>
+
+{# finalizamos la definicion del bloque de Scripts de la pagina declarado en al archivo base.html #}
 {% endblock %}
