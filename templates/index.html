@@ -8,18 +8,117 @@
 {% block content %}
 
     {# comenzamos a construir el contenido de nuestra pagina#}
-<div>
-    <p>PANTALLA PRINCIPAL</p>
-    <h1>Prueba github</h1>
-</div>
-<div>
-    <h1>Preuba de Dani</h1>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugiat ea tenetur eos excepturi nobis assumenda ducimus necessitatibus quia quasi maiores aliquam dolorem, quis temporibus officia ipsum at quod. Atque.</p>
-</div>
-<div>
-    <h1>
-        hola
-    </h1>
+    <div>
+    <!-- PAGINA INICIAL-->
+    <main class="flex flex-col items-center justify-center mt-32">
+        <header class="container">
+        <!-- EN TEORIA EL HEADER ESTA HECHO EN BASE -->
+        </header>
+
+        <!-- CONTENIDO INICIO -->
+        <section
+            class="flex flex-wrap items-center -mx-3 font-sans px-4 mx-auto w-full lg:max-w-screen-lg sm:max-w-screen-sm md:max-w-screen-md pb-20">
+            <!-- COLUMNA UNO INFO -->
+            <div class="px-3 w-full lg:w-2/5">
+                <div
+                    class="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
+                    <h2 class="mb-4 text-3xl font-bold text-left lg:text-5xl">
+                        SOMOS DE LA CASA
+
+                        <span class="text-5xl text-blue-500 leading-relaxeds"
+                            >LANNISTER
+                        </span>
+
+                        SISTEMA DE ACCESO A MATERIA PRIMA
+                    </h2>
+
+                    <p
+                        class="visible mx-0 mt-3 mb-0 text-base leading-relaxed text-left text-slate-400">
+                        Queremos ayudar a los artesanos a acceder a materiales
+                    </p>
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <a
+                        class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-blue-500 rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
+                        >Objetivo</a
+                    >
+
+                    <a
+                        class="block visible py-4 px-8 text-xs font-semibold leading-none bg-white rounded border border-solid cursor-pointer sm:inline-block border-slate-200 text-slate-500"
+                        >¿Como trabajamos?</a
+                    >
+                </div>
+            </div>
+
+            <!-- COLUMNA DOS / LOGO -->
+            <div class="px-3 mb-12 w-full lg:mb-0 lg:w-3/5">
+                <div class="flex justify-center items-center">
+                    <img class="w-full" src="https://scontent.fasu11-1.fna.fbcdn.net/v/t39.30808-6/274658303_1862186607314397_3290559494298604757_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=L50rRpFmtXgAX9xt9xQ&_nc_ht=scontent.fasu11-1.fna&oh=00_AT_HVybVTnciTqA6iIf9QOez8D4RjnxmGuxiUQwgAAco4Q&oe=632E5714" alt="si">
+                </div>
+            </div>
+        </section>
+
+        <!-- FONDO -->
+        <section
+            class="flex flex-col w-full h-[500px] bg-cover bg-fixed bg-center flex justify-center items-center"
+            style="
+                background-image: url(https://lh3.googleusercontent.com/drive-viewer/AJc5JmRmKDl5FJ9rQK3j4DuH_F6P7Si5T1U0LZnrDAeNYqyFf7Pz6vxs7En9tUJlwhtfYP6iasNIuhk=w1304-h619);
+            ">
+            <h1 class="text-white text-5xl font-semibold mt-20 mb-10">
+                Somos de la casa Lannister
+            </h1>
+
+            <span class="text-center font-bold my-20 text-white/90">
+                <a
+                    href="https://www.youtube.com/watch?v=BXPwKTUSpxA"
+                    target="_blank"
+                    class="text-white/90 hover:text-white">
+                    BASTA ROGELIO
+                </a>
+
+                <hr class="my-4" />
+
+                <a
+                    href="https://penguin.academy/"
+                    target="_blank"
+                    class="text-white/90 hover:text-white">
+                    PENGUIN ACADEMY
+                </a>
+
+                <hr class="my-4" />
+
+                <p>
+                    <a
+                        href="https://github.com/eysemberth/proyecto-artesania"
+                        target="_blank"
+                        class="text-white/90 hover:text-white">
+                        FUENTE DEL CODIGO
+                    </a>
+                    |
+                    <a
+                        href="https://www.artesania.gov.py/index.php"
+                        target="_blank"
+                        class="text-white/90 hover:text-white">
+                        LINK IPA
+                    </a>
+                </p>
+            </span>
+        </section>
+
+        <!-- CONTENIDO -->
+        <section class="p-20 space-y-8">
+            <h1 class="text-4xl text-center my-20">En que consiste el proyecto o titulo</h1>
+
+            <p>
+            Texto 1 explicando la vision o mision
+            </p>
+
+            <p>
+                Explicar el proyecto o cosas asi xD
+            </p>
+        </section>
+    </main>
 </div>
 
 {# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}

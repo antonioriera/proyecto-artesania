@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 
 class Providers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(20))
+    first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(20))
     company_name = db.Column(db.String(60))
     document = db.Column(db.String(20))
@@ -68,6 +68,12 @@ def pagina_directorio():
     data = Providers.query.all()
 
     return render_template('directorio.html', profiles=data)
+
+@app.get("/perfil-proveedor/<int:id_proveedor>")
+def perfil_proveedor(id_proveedor):
+    data = Providers.query.filter_by(id=id_proveedor).first()
+
+    return render_template('perfil_proveedor.html', profile=data)
 
 @app.post("/provider")
 def create_providers():

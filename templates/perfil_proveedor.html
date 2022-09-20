@@ -1,0 +1,45 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
+{% extends 'base.html' %}
+
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
+{% block title %}Perfil Proveedor / Materia Prima{% endblock %}
+
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
+{% block content %}
+
+    {# comenzamos a construir el contenido de nuestra pagina#}
+    <div class="flex m-10">
+        <div class="flex flex-col m-0 m-auto content-center">
+            <div class="text-xl mb-3"><p>Perfil de Proveedor - Materia Prima</p></div>
+    
+            <div class="flex">
+                <div class="w-8/12 bg-gray-400 rounded-xl">
+                    <div class="flex">  
+                        <div class="mt-10 sm:mt-0 p-10 content-center w-full">
+                            <div class="md:grid md:grid-cols-3 md:gap-6">
+                              <div class="mt-5 md:col-span-3 md:mt-0">
+                                  <div class="overflow-hidden shadow sm:rounded-md">
+                                    <div class="bg-white px-4 py-5 sm:p-6">
+                                      <div class="grid grid-cols-6 gap-6">
+                                            <p>{{profile.id}}</p>
+                                            <p>{{profile.first_name}}</p>
+                                            <p>{{profile.last_name}}</p>
+                                            <p>{{profile.company_name}}</p>
+                                            <p>{{profile.document}}</p>
+                                            <p>{{profile.address}}</p>
+                                            <p>{{profile.phone_number}}</p>
+                                            <p>{{profile.city}}</p>
+                                            <p>{{profile.raw_material}}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}

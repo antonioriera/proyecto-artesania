@@ -22,12 +22,9 @@
                                     <table id="table_id" class="display">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
+                                                <th>Perfil</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
-                                                <th>N° Documento</th>
-                                                <th>Compañia</th>
-                                                <th>Direccion</th>
                                                 <th>Telefono</th>
                                                 <th>Ciudad</th>
                                                 <th>Materia Prima</th>
@@ -36,15 +33,12 @@
                                         <tbody>
                                             {% for data in profiles %}
                                             <tr>
-                                                <td>{{data.id}}</td>
+                                                <td><a href="/perfil-proveedor/{{data.id}}" class="flex items-center"><button type="button" class="bg-indigo-400 p-3 rounded"><img src="{{ url_for('static', filename='user.png') }}" class="w-5" alt="Logo" /></button><p class="hidden">{{data.id}}</p></a></td>
                                                 <td>{{data.first_name}}</td>
                                                 <td>{{data.last_name}}</td>
-                                                <td>{{data.company_name}}</td>
-                                                <td>{{data.document}}</td>
-                                                <td>{{data.address}}</td>
                                                 <td>{{data.phone_number}}</td>
                                                 <td>{{data.city}}</td>
-                                                <td>{{data.raw_material}}</td>
+                                                <td class="text-center">{{data.raw_material}}</td>
                                             </tr>
                                             {% endfor%}
                                         </tbody>
