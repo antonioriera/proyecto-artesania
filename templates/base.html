@@ -10,6 +10,30 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 </head>
+
+<style>
+    .tooltip-text {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        width: 300px;
+        color: white;
+        font-size: 12px;
+        background-color: #192733;
+        border-radius: 10px;
+        padding: 10px 15px 10px 15px;
+        }
+        
+        .hover-text:hover .tooltip-text {
+        visibility: visible;
+        }
+        
+        #top-tooltip {
+        top: -40px;
+        left: -50%;
+    }
+</style>
+
 <body>
     {# incluimos el bloque de codigo del header #}
     {% include 'partials/header.html' %}
