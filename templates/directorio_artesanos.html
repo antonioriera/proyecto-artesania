@@ -4,7 +4,7 @@ automaticamente el header y el footer #}
 {% extends 'base.html' %}
 
 {# definimosel titulo de la pagina en el bloque declarado en al archivo base.html #}
-{% block title %}Directorio{% endblock %}
+{% block title %}Directorio Artesanos{% endblock %}
 
 {# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
 {% block content %}
@@ -13,7 +13,7 @@ automaticamente el header y el footer #}
 <div class="flex m-10">
   <div class="flex flex-col m-0 m-auto content-center">
     <div class="text-xl mb-3">
-      <p>Directorio de Proveedores - Materia Prima</p>
+      <p>Directorio de Artesanos</p>
     </div>
 
     <div class="bg-slate-100 rounded">
@@ -97,7 +97,7 @@ automaticamente el header y el footer #}
                         <tr>
                           <td>
                             <a
-                              href="/perfil-proveedor/{{data.id}}"
+                              href=""
                               class="flex items-center"
                               ><button
                                 type="button"
@@ -147,33 +147,17 @@ al archivo base.html #} {% endblock %} {% block script %}
 </script>
 
 <script>
-  Vue.createApp({
-    data() {
-        return {
-          ciudad: "{{filtro_city or ''}}",
-          materia_prima: "{{filtro_raw_material or ''}}",
-          ciudades: ["Areguá", "Caacupé", "Itá", "Atyrá", "Carapeguá", "Concepción", "Itaguá", "Limpio", "Luque", "Misiones", "Pirayú", "Tobatí", "Yataity", "Yaguarón"],
-          tipos_materia: ["Cuero Curtido", "Cuero Sintético", "Lana de Oveja", "Arcilla Blanda o Caolín", "Oro", "Plata", "Bronce", "Mezcla", "Pluma de Avestruz", "Palo Santo", "Timbó", "Karandy", "Tacuara"]
-        }
-    },
-    methods: {
-      filtrar() {
-        if (this.ciudad || this.materia_prima) {
-          axios.get('/filtrar_proveedor', {
-            params: {
-              city: this.ciudad,
-              raw_material: this.materia_prima,
-            }
-          }).then((response) => {
-            tabla.clear().rows.add(response.data).draw()
-          }).catch((error) => { });
-        } else {
-          alert('Favor, seleccione alguna opcion.')
-        }
-      }
-    },
-    delimiters: ['{', '}']
-  }).mount('#app')
-</script>
+    Vue.createApp({
+      data() {
+          return {
+            ciudad: "{{filtro_city or ''}}",
+            materia_prima: "{{filtro_raw_material or ''}}",
+            ciudades: ["Areguá", "Caacupé", "Itá", "Atyrá", "Carapeguá", "Concepción", "Itaguá", "Limpio", "Luque", "Misiones", "Pirayú", "Tobatí", "Yataity", "Yaguarón"],
+            tipos_materia: ["Cuero Curtido", "Cuero Sintético", "Lana de Oveja", "Arcilla Blanda o Caolín", "Oro", "Plata", "Bronce", "Mezcla", "Pluma de Avestruz", "Palo Santo", "Timbó", "Karandy", "Tacuara"]
+          }
+      },
+      delimiters: ['{', '}']
+    }).mount('#app')
+  </script>
 
 {% endblock %}

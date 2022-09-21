@@ -82,7 +82,15 @@ def pagina_directorio():
         filtro_raw_material = reqiff('raw_material', None)
         filtro_city = reqiff('city', None)
 
-        data = Providers.query.filter_by(raw_material = filtro_raw_material, city = filtro_city).all()
+        filter = {}
+
+        if filtro_raw_material is not None and filtro_raw_material is not '':
+            filter["raw_material"] = filtro_raw_material
+
+        if filtro_city != None and filtro_city != '':
+            filter["city"] = filtro_city
+
+        data = Providers.query.filter_by(**filter).all()
     else:
         data = Providers.query.all()
 
@@ -97,6 +105,11 @@ def pagina_institucion():
 def pagina_calculadora():
 
     return render_template('calculadora.html')
+
+@app.get("/directorio_artesanos")
+def directorio_artesanos():
+
+    return render_template('directorio_artesanos.html')
 
 @app.get("/perfil-proveedor/<int:id_proveedor>")
 def perfil_proveedor(id_proveedor):
