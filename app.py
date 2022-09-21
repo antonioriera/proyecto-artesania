@@ -86,6 +86,12 @@ def perfil_proveedor(id_proveedor):
 
     return render_template('perfil_proveedor.html', profile=data)
 
+@app.get("/filtrar_proveedor/<int:id_proveedor>")
+def filtrar_proveedor(raw_material, city):
+    data = Providers.query.filter_by(raw_material = raw_material, city = city).all()
+
+    return data
+
 @app.post("/provider")
 def create_providers():
     provider = Providers()
