@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 # importamos el sqlite3
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 import os
 
 app = Flask(__name__)
@@ -9,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('URL_DB', default='sqlite:///d
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 class Providers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +25,13 @@ class Providers(db.Model):
     latitude = db.Column(db.String(100))
     longitude = db.Column(db.String(100))
     status = db.Column(db.Boolean)
+
+class ProviderSchema(ma.Schema):
+    class Meta:
+        fields = ("id", "first_name", "last_name", "company_name", "document", "address", "phone_number", "city", "raw_material", "latitude", "longitude", "status")
+
+provider_schema = ProviderSchema()
+providers_schema = ProviderSchema(many=True)
 
 @app.get("/")
 def index():
@@ -64,11 +73,20 @@ def iniciar_sesion():
 
     return render_template('iniciar_sesion.html')
 
-@app.get("/directorio")
+@app.route("/directorio", methods=['GET', 'POST'])
 def pagina_directorio():
-    data = Providers.query.all()
+    filtro_raw_material = None
+    filtro_city = None
 
-    return render_template('directorio.html', profiles=data)
+    if request.method == 'POST':
+        filtro_raw_material = reqiff('raw_material', None)
+        filtro_city = reqiff('city', None)
+
+        data = Providers.query.filter_by(raw_material = filtro_raw_material, city = filtro_city).all()
+    else:
+        data = Providers.query.all()
+
+    return render_template('directorio.html', profiles=data, filtro_raw_material=filtro_raw_material, filtro_city=filtro_city)
 
 @app.get("/institucion")
 def pagina_institucion():
@@ -86,11 +104,17 @@ def perfil_proveedor(id_proveedor):
 
     return render_template('perfil_proveedor.html', profile=data)
 
-@app.get("/filtrar_proveedor/<int:id_proveedor>")
-def filtrar_proveedor(raw_material, city):
+@app.get("/filtrar_proveedor")
+def filtrar_proveedor():
+    raw_material = request.args.get('raw_material', None)
+    city = request.args.get('city', None)
+
     data = Providers.query.filter_by(raw_material = raw_material, city = city).all()
 
-    return data
+    return providers_schema.dump(data)
+
+def reqiff(value, default):
+    return request.form[value] if value in request.form else default
 
 @app.post("/provider")
 def create_providers():

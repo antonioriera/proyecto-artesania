@@ -26,7 +26,7 @@ automaticamente el header y el footer #}
                   <div class="mt-10 sm:mt-0">
                     <div class="">
                       <div class="mt-5 md:col-span-2 md:mt-0">
-                        <form action="#" method="POST">
+                        <form action="/directorio" method="POST">
                           <div class="overflow-hidden shadow sm:rounded-md">
                             <div class="bg-white px-4 py-5 sm:p-6">
                               <div class="grid grid-cols-6 gap-6">
@@ -140,7 +140,7 @@ al archivo base.html #} {% endblock %} {% block script %}
 
 <script>
   $(document).ready(function () {
-    $("#table_id").DataTable();
+    const tabla = $("#table_id").DataTable();
   });
 </script>
 
@@ -148,9 +148,27 @@ al archivo base.html #} {% endblock %} {% block script %}
   Vue.createApp({
     data() {
         return {
+          ciudad: '{{filtro_city}}',
+          materia_prima: '{{filtro_raw_material}}',
           ciudades: ["Areguá", "Caacupé", "Itá", "Atyrá", "Carapeguá", "Concepción", "Itaguá", "Limpio", "Luque", "Misiones", "Pirayú", "Tobatí", "Yataity", "Yaguarón"],
           tipos_materia: ["Cuero Curtido", "Cuero Sintético", "Lana de Oveja", "Arcilla Blanda o Caolín", "Oro", "Plata", "Bronce", "Mezcla", "Pluma de Avestruz", "Palo Santo", "Timbó", "Karandy", "Tacuara"]
         }
+    },
+    methods: {
+      filtrar() {
+        if (this.ciudad || this.materia_prima) {
+          axios.get('/filtrar_proveedor', {
+            params: {
+              city: this.ciudad,
+              raw_material: this.materia_prima,
+            }
+          }).then((response) => {
+            tabla.clear().rows.add(response.data).draw()
+          }).catch((error) => { });
+        } else {
+          alert('Favor, seleccione alguna opcion.')
+        }
+      }
     },
     delimiters: ['{', '}']
   }).mount('#app')
