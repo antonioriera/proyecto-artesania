@@ -2,9 +2,10 @@
 from flask import Flask, render_template, request
 # importamos el sqlite3
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/minartpy.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('URL_DB', default='sqlite:///database/minartpy.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
