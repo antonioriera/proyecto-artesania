@@ -31,37 +31,37 @@
                                     </div>
                       
                                     <div class="col-span-6 sm:col-span-3">
-                                      <label for="company" class="block text-sm font-medium text-gray-700">Compañia</label>
-                                      <input v-model="nombre_empresa" type="text" name="company" id="company" autocomplete="company-name" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
+                                      <label for="company" class="block text-sm font-medium text-gray-700">Empresa</label>
+                                      <input required v-model="nombre_empresa" type="text" name="company" id="company" autocomplete="company-name" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
                                     </div>
                       
                                     <div class="col-span-6 sm:col-span-3">
                                       <label for="document" class="block text-sm font-medium text-gray-700">RUC</label>
-                                      <input v-model="documento" type="text" name="document" id="document" autocomplete="document" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
+                                      <input required v-model="documento" type="text" name="document" id="document" autocomplete="document" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3 lg:col-span-3">
                                       <label for="phone" class="block text-sm font-medium text-gray-700">Telefono</label>
-                                      <input v-model="telefono" type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
+                                      <input required v-model="telefono" type="text" name="phone" id="phone" autocomplete="phone" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
                                     </div>
                       
                                     <div class="col-span-6 sm:col-span-3">
                                       <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
-                                      <select v-model="ciudad" id="city" name="city" autocomplete="city" class="mt-1 block w-full rounded-md border border-gray-400 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                      <select required v-model="ciudad" id="city" name="city" autocomplete="city" class="mt-1 block w-full rounded-md border border-gray-400 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                         <option v-for="city in ciudades" :value="city">{city}</option>
                                       </select>
                                     </div>
                       
                                     <div class="col-span-6 sm:col-span-3">
                                       <label for="raw_material" class="block text-sm font-medium text-gray-700">Tipo de materia prima</label>
-                                      <select v-model="materia_prima" id="raw_material" name="raw_material" autocomplete="raw_material" class="mt-1 block w-full rounded-md border border-gray-400 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                      <select required v-model="materia_prima" id="raw_material" name="raw_material" autocomplete="raw_material" class="mt-1 block w-full rounded-md border border-gray-400 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                         <option v-for="tipo in tipos_materia" :value="tipo">{tipo}</option>
                                       </select>
                                     </div>
                       
                                     <div class="col-span-6">
                                       <label for="street-address" class="block text-sm font-medium text-gray-700">Dirección</label>
-                                      <input v-model="direccion" type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
+                                      <input required v-model="direccion" type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-8">
                                     </div>
 
                                     <div class="col-span-6">
@@ -70,7 +70,7 @@
                                   </div>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                                  <button @click="registrarProveedor" type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Guardar</button>
+                                  <button @click="registrarProveedor" type="submit" class="guardar inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Guardar</button>
                                 </div>
                               </div>
                           </div>
@@ -144,8 +144,8 @@ Vue.createApp({
         });
       },
       registrarProveedor() {
-        if (!this.nombre) {
-          alert('El campo nombre es requerido.')
+        if (!this.nombre || !this.apellido || !this.telefono || !this.documento || !this.direccion || !this.ciudad || !this.materia_prima) {
+          alert('Favor, rellene todos los campos.')
         } else {
           axios.post('/provider', {
             nombre: this.nombre,

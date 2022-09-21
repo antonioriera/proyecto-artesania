@@ -69,6 +69,11 @@ def pagina_directorio():
 
     return render_template('directorio.html', profiles=data)
 
+@app.get("/institucion")
+def pagina_institucion():
+
+    return render_template('institucion.html')
+
 @app.get("/perfil-proveedor/<int:id_proveedor>")
 def perfil_proveedor(id_proveedor):
     data = Providers.query.filter_by(id=id_proveedor).first()

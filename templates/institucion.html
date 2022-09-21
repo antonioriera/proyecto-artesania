@@ -1,0 +1,87 @@
+{# extendemos nuestra pagina del codigo base de la plataforma, el cual nos trae automaticamente el header y el footer #}
+{% extends 'base.html' %}
+
+{# definimos el titulo de la pagina en el bloque declarado en al archivo base.html #}
+{% block title %}AQUI EL TITULO{% endblock %}
+
+{# definimos el bloque de contenido de la pagina declarado en al archivo base.html #}
+{% block content %}
+
+{# comenzamos a construir el contenido de nuestra pagina#}
+    <!-- HEADER -->
+    <div class="flex m-10">
+    <div class="flex flex-col m-0 m-auto content-center">
+
+        <div class="w-full bg-gray-400 rounded-xl">
+            <div class="flex">  
+                <div class="mt-10 sm:mt-0 p-10 content-center">
+                    <div class="md:grid md:grid-cols-3 md:gap-6">
+                        <div class="mt-5 md:col-span-3 md:mt-0">
+                            <div class="overflow-hidden shadow sm:rounded-md">
+                            <div class="bg-white px-4 py-5 sm:p-6">
+                                <div class="grid grid-cols-6 gap-6">
+                                <header class="py-12">
+                                    <div class="container mx-auto px-4">
+                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                            <div>
+                                                <h1 class="text-indigo-900 text-6xl leading-snug font-lora font-bold mb-8"> El Instituto Paraguayo De Artesanía:</h1>
+                                                <br>
+                                                <h2 class="text-indigo-900 text-6xl leading-snug font-lora font-bold mb-8">Quienes son,cuando se fundo y para qué; Aquí te contamos su historia:</h2>
+                                                <i class="mb-12">Como su nombre lo indica  el instituto paraguayo de artesanía es un lugar donde se estimula y protege el desarrollo de  la artesanía paraguaya.
+                                                    Fue creado por Ley Nº 2448/2004 .
+                                                        Y por supuesto!! también busca canales de comercialización e incentivar la formación de artesanos entre otras funciones.</i> <br>
+                            
+                                                    <h2 class="text-indigo-900"> A todo esto, a qué denomina artesanía?</h2>
+                                                    <i> Se denomina artesanía tanto al trabajo como a las creaciones realizadas por los artesanos (una persona que realiza trabajos manuales).
+                                                            Es un tipo de arte en el que se trabaja fundamentalmente con las manos, moldeando diversos objetos con fines comerciales o meramente artísticos o creativos.
+                                                            Una de las características fundamentales de este trabajo es que se desarrolla con poca o nula intervención de máquinas o de procesos automatizados.
+                                                            Esto convierte a cada obra artesanal en un objeto único e incomparable, lo que le da un carácter sumamente especial.</i>
+                            
+                                                    <i> Es una entidad autárquica, descentralizada, con personería jurídica y patrimonio propio. Esta entidad estará sujeta a las disposiciones de derecho público.
+                                                        Solo a tener en cuenta, estos son los objetivos del instituto paraguayo de artesanía(IPA):</i>
+                                                    
+                                                    <br> <h4 class="text-blue-600"> Mision del Ipa:</h4> <br>
+                                                    <i> La misión del Ipa es salvaguardar y posicionar la artesanía paraguaya como patrimonio e identidad nacional fomentando el desarrollo de las comunidades artesanas.</i>
+                                                    
+                                                    <h4 class="text-blue-600"> Visión que tienen:</h4> <br>
+                                                    <i> Es una Institución modelo de excelencia en gestión pública, con reconocimiento en el ámbito nacional e internacional.</i>
+                                                    
+                                                    
+                                                    <h4 class ="text-blue-600">Sus Valores:</h4> <br>
+                            
+                                                    <i> ElCompromiso.Trabajamos en equipo con responsabilidad, respeto y empatía para el logro de los objetivos establecidos.</i>
+                                                    <br>
+                                                    <i> La Integridad. Actuamos conforme a principios éticos con una gestión transparente y honesta.</i> <br>
+                                                    
+                                                    <i> La Eficiencia y Eficacia. Alcanzamos las metas planificadas con calidad optimizando el uso de los recursos disponibles.</i><br>
+                                                    
+                                                    <i> La Innovación. Generamos procesos y acciones colaborativas, creativas y con impacto positivo en la sociedad.</i> <br>
+                                                    
+                                                    <i> La Inclusión. Desarrollamos nuestras acciones sin discriminación promoviendo procesos participativos y condiciones en igualdad de oportunidades.</i> <br>
+                            
+                            
+                                            </div>
+                                            <div class="px-12 lg:px-0">
+                                                <img src="static/Logo_IPA (1).png" alt=" uuuf chaaaaa que le vamos a hacer..." class="w-full">
+                                                
+                                                <div class="px-12 lg:px-0">
+                                                    <img src="static/kuñakarai.png" alt="kuñakarai porã posando para vos" class="w-full">
+                                                </div>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </header>
+                                <!-- HEADER -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# finalizamos la definicion del bloque de contenido de la pagina declarado en al archivo base.html #}
+{% endblock %}
