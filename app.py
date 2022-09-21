@@ -75,6 +75,11 @@ def pagina_institucion():
 
     return render_template('institucion.html')
 
+@app.get("/calculadora")
+def pagina_calculadora():
+
+    return render_template('calculadora.html')
+
 @app.get("/perfil-proveedor/<int:id_proveedor>")
 def perfil_proveedor(id_proveedor):
     data = Providers.query.filter_by(id=id_proveedor).first()

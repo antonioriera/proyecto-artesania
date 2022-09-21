@@ -3,7 +3,7 @@
     "builds": [
         {
             "src": "./index.py",
-            "use": "@jgtvares/py-vercel"
+            "use": "@vercel/python"
         }
     ],
     "routes": [
