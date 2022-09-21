@@ -160,6 +160,15 @@ Vue.createApp({
             longitude: this.location.longitude,
           }).then((response) => {
             alert('Registro exitoso.')
+
+            this.nombre = ''
+            this.apellido = ''
+            this.nombre_empresa = ''
+            this.documento = ''
+            this.direccion = ''
+            this.telefono = ''
+            this.ciudad = ''
+            this.materia_prima = ''
           }).catch((error) => { });
         }
       }
